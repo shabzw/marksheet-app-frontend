@@ -12,6 +12,8 @@ export default function Home(props) {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState(localStorage.getItem("userInfo"));
   const [resultFetched, setResultFetched] = useState(false);
+  const [totalMarks, setTotalMarks] = useState("");
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       const response = fetch(`${API_BASE_URL}/api/auth/getuserinfo`, {
@@ -39,6 +41,17 @@ export default function Home(props) {
       navigate("/login");
     }
   }, []);
+
+  useEffect(() => {
+    // Use reduce to sum up the marksScored values
+    const totalMarksScored = results.reduce((total, formData) => {
+      // Convert marksScored to a number and add it to the total
+      return total + Number(formData?.marksScored);
+    }, 0);
+    setTotalMarks(totalMarksScored);
+  }, [results]);
+
+
   var role = localStorage.getItem("role");
   if (role != "student") {
     navigate("/login");
@@ -148,8 +161,16 @@ export default function Home(props) {
                 </tbody>
               </table>
             </div>
+
+            <h4 style={{ marginTop: "10px" }}>
+          Total Marks Scored:{" "}
+          <span class="badge text-bg-success">{totalMarks}</span>
+        </h4>
+
           </form>
         )}
+        
+
       </div>
     </>
   );
