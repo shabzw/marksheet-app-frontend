@@ -53,7 +53,7 @@ export default function Home(props) {
 
 
   var role = localStorage.getItem("role");
-  if (role != "student") {
+  if (role && role != "student") {
     navigate("/login");
     props.showAlert("Log In as Student to access this page", "success");
   }
