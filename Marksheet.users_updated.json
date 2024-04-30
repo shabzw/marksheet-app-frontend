@@ -1,0 +1,160 @@
+[{
+  "_id": {
+    "$oid": "662a8a011f86b3cee7ea1792"
+  },
+  "name": "Hank Waller",
+  "email": "hank@mail.com",
+  "role": "staff",
+  "password": "$2a$10$eMEmPvxiTsyctHXwpqu5jeKzqXg1slBF539UT/YbXDJsM/bsSstii",
+  "gender": "male",
+  "classN": "class1-A",
+  "phoneNo": "345324",
+  "date": {
+    "$date": "2024-04-25T16:51:13.161Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a9e961f86b3cee7ea1795"
+  },
+  "name": "Peter",
+  "email": "peter@mail.com",
+  "role": "staff",
+  "password": "$2a$10$pu.dM8URmXX63X3vzJgk6ee0McQ71sPeqGJIGeP1m5i89zzrFMXkC",
+  "gender": "male",
+  "classN": "class1-B",
+  "phoneNo": "3525242",
+  "date": {
+    "$date": "2024-04-25T18:19:02.501Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662b5d5ad04efee9329f2ce1"
+  },
+  "name": "Gram Will",
+  "email": "will@mail.com",
+  "role": "staff",
+  "password": "$2a$10$FCS/ViZH.jr2XKlyRD7ebuv2nYBUU.d5c/XRNrWZ0oJwSFfGhAuEG",
+  "gender": "male",
+  "classN": "class2-A",
+  "phoneNo": "2828924",
+  "date": {
+    "$date": "2024-04-26T07:52:58.816Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662b7532a70515720cfcd7b5"
+  },
+  "name": "Malcom Green",
+  "email": "malcom@mail.com",
+  "role": "student",
+  "password": "$2a$10$.1xaW760kcI2gL22oukgR.ctxRhS4kevN92GRsGO46GfSfqzvl2U6",
+  "gender": "male",
+  "classN": "class2-A",
+  "phoneNo": "89274973",
+  "date": {
+    "$date": "2024-04-26T09:34:42.739Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e7a04b1880f730d2ec86c"
+  },
+  "name": "Karen Ganner",
+  "email": "karee@mail.com",
+  "role": "student",
+  "password": "$2a$10$XiGkBpFFzg.EEcFzusTVo.BOnpp4KwXzqJS9uRlA0ppjWygwgwFwS",
+  "gender": "male",
+  "classN": "class2-B",
+  "phoneNo": "3648762",
+  "date": {
+    "$date": "2024-04-28T16:32:04.980Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e9d210da2b72f0319a317"
+  },
+  "name": "Jessie Nowich",
+  "email": "jessie@mail.com",
+  "role": "student",
+  "password": "$2a$10$Cb76vYnKilBZZtUkSQAbYuuPk/BbfjymjP.5NIKotbB9fduy2BqXy",
+  "gender": "male",
+  "classN": "class2-A",
+  "phoneNo": "3984759",
+  "date": {
+    "$date": "2024-04-28T19:01:53.046Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f6c64bec40be8291d1020"
+  },
+  "name": "Ken San",
+  "email": "kensan@mail.com",
+  "role": "staff",
+  "password": "$2a$10$mx3/09dUR6KGerpInk9nbu0pOMxIoGzxnHkcADRGp62rmrR57poM6",
+  "gender": "male",
+  "classN": "class1-B",
+  "phoneNo": "892743",
+  "date": {
+    "$date": "2024-04-29T09:46:12.778Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f6d24bec40be8291d1025"
+  },
+  "name": "Jissele Marny",
+  "email": "marny@mail.com",
+  "role": "staff",
+  "password": "$2a$10$HUp221.4q8fgUNESrYf.muqe0dVVm4.tp60BdcDfkS4TlYeksec4O",
+  "gender": "female",
+  "classN": "class1-C",
+  "phoneNo": "345345",
+  "date": {
+    "$date": "2024-04-29T09:49:24.057Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662fe54e16d4ca43a16cb8d6"
+  },
+  "name": "Franky Paf",
+  "email": "frank@mail.com",
+  "role": "staff",
+  "password": "$2a$10$doFWjQqLo0di0I2NHTql9.djhV9z3KDMP/moVgCfOcjdai51BR8eu",
+  "gender": "male",
+  "classN": "class1-A",
+  "phoneNo": "352479",
+  "date": {
+    "$date": "2024-04-29T18:22:06.595Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f72fb363287c7238625d3"
+  },
+  "name": "Modrico Barrie",
+  "email": "barrie@mail.com",
+  "role": "student",
+  "password": "$2a$10$ZR29f1hzhjkhlcxys73TiuZSYDi1IbD4c/N04djKgoXbVcC0LbfDK",
+  "gender": "male",
+  "classN": "class2-A",
+  "phoneNo": "39485035",
+  "date": {
+    "$date": "2024-04-29T10:14:19.891Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "662a8a011f86b3cee7ea1792"
+  },
+  "name": "Hank Waller",
+  "email": "hank@mail.com",
+  "role": "staff",
+  "password": "$2a$10$eMEmPvxiTsyctHXwpqu5jeKzqXg1slBF539UT/YbXDJsM/bsSstii",
+  "gender": "male",
+  "classN": "class1-A",
+  "phoneNo": "345324",
+  "date": {
+    "$date": "2024-04-25T16:51:13.161Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a9e961f86b3cee7ea1795"
+  },
+  "name": "Peter",
+  "email": "peter@mail.com",
+  "role": "staff",
+  "password": "$2a$10$pu.dM8URmXX63X3vzJgk6ee0McQ71sPeqGJIGeP1m5i89zzrFMXkC",
+  "gender": "male",
+  "classN": "class1-B",
+  "phoneNo": "3525242",
+  "date": {
+    "$date": "2024-04-25T18:19:02.501Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662b5d5ad04efee9329f2ce1"
+  },
+  "name": "Gram Will",
+  "email": "will@mail.com",
+  "role": "staff",
+  "password": "$2a$10$FCS/ViZH.jr2XKlyRD7ebuv2nYBUU.d5c/XRNrWZ0oJwSFfGhAuEG",
+  "gender": "male",
+  "classN": "class2-A",
+  "phoneNo": "2828924",
+  "date": {
+    "$date": "2024-04-26T07:52:58.816Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662b7532a70515720cfcd7b5"
+  },
+  "name": "Malcom Green",
+  "email": "malcom@mail.com",
+  "role": "student",
+  "password": "$2a$10$.1xaW760kcI2gL22oukgR.ctxRhS4kevN92GRsGO46GfSfqzvl2U6",
+  "gender": "male",
+  "classN": "class2-A",
+  "phoneNo": "89274973",
+  "date": {
+    "$date": "2024-04-26T09:34:42.739Z"
+  },
+  "__v": 0
+}]
