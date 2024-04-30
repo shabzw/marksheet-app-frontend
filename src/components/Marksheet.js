@@ -100,7 +100,7 @@ function Marksheet(props) {
     // Use reduce to sum up the marksScored values
     const totalMarksScored = results.reduce((total, formData) => {
       // Convert marksScored to a number and add it to the total
-      return total + Number(formData.marksScored);
+      return total + Number(formData?.marksScored);
     }, 0);
     setTotalMarks(totalMarksScored);
   }, [results]);
