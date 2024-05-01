@@ -40,6 +40,9 @@ const Signup = (props) => {
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       localStorage.setItem("role", credentials.role);
+      const curData = json.loggedInData;
+      const curUserData = JSON.stringify(curData[0]);
+      localStorage.setItem("curUserData", curUserData);
       if (credentials.role === "staff") {
         navigate("/staff");
       } else {
