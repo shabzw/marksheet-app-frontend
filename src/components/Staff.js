@@ -13,8 +13,8 @@ function Staff(props) {
   const [contacts, setContacts] = useState([
     localStorage.getItem("updatedData"),
   ]);
-  const [classValue, setClassValue] = useState("");
-
+  const [classValue, setClassValue] = useState(localStorage.getItem("classVal"));
+localStorage.setItem("classVal", classValue)
   const [editData, setEditData] = useState(false);
   const [addFormData, setAddFormData] = useState({
     fullName: "",
@@ -270,13 +270,14 @@ function Staff(props) {
             Select Class
           </label>
           <select
+          value={localStorage.getItem("classVal")}
             className="form-select"
             aria-label="Default select example"
             onChange={(e) => setClassValue(e.target.value)}
             name="classN"
           >
             {/* <option selected>Select</option> */}
-            <option value="class1-A">Select</option>
+            <option>Select</option>
             <option value="class1-A">Class1-A</option>
             <option value="class1-B">Class1-B</option>
             <option value="class1-C">Class1-C</option>
@@ -286,7 +287,7 @@ function Staff(props) {
           </select>
         </div>
 
-        {classValue && (
+        {/* {classValue && ( */}
           <>
             <div
               style={{ display: "flex", flexDirection: "column", gap: "15px" }}
@@ -389,7 +390,6 @@ function Staff(props) {
               </div>
             </form>
           </>
-        )}
       </div>
     </>
   );

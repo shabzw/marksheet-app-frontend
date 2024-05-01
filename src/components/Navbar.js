@@ -9,6 +9,7 @@ const Navbar = () => {
     localStorage.removeItem("role");
     localStorage.removeItem("userInfo");
     localStorage.removeItem("curUserData");
+    localStorage.removeItem("classVal");
     navigate("/login");
   };
   let location = useLocation();
