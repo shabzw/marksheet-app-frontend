@@ -20,6 +20,10 @@ const Signup = (props) => {
     e.preventDefault();
     const { name, email, password, role, gender, classN, phoneNo, secretKey } =
       credentials;
+      if(credentials.password!==credentials.cpassword){
+       return props.showAlert("Passwords don't match", "danger");
+      }
+
     const response = await fetch(`${API_BASE_URL}/api/auth/createuser`, {
       method: "POST",
       headers: {
