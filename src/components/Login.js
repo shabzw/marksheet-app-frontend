@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loadingGIF from "../Assets/loading.gif"
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false)
   let navigate = useNavigate();
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
@@ -22,6 +26,7 @@ const Login = (props) => {
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       props.showAlert("Logged In Successfully", "success");
+      setLoading(false)
       const curData = json.loggedInData;
       const curUserData = JSON.stringify(curData[0]);
       localStorage.setItem("curUserData", curUserData);
@@ -34,6 +39,8 @@ const Login = (props) => {
       }
     } else {
       props.showAlert("Invalid Credentials", "danger");
+      setLoading(false)
+      navigate("/login")
     }
   };
 
@@ -43,6 +50,17 @@ const Login = (props) => {
 
   return (
     <div className="container mt-2">
+      {loading ? (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <img
+    className=""
+      style={{ width: "30%" }}
+      src={loadingGIF}
+      alt="Loading..."
+    /><div>Please Wait</div>
+  </div>
+) : (
+  <div>
       <h1>Login to continue to myMarksheet</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -79,6 +97,8 @@ const Login = (props) => {
           Submit
         </button>
       </form>
+      </div>
+)}
     </div>
   );
 };

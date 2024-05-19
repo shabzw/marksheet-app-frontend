@@ -37,7 +37,7 @@ export default function ReadOnlyRow({
             {formatDate(new Date(contact?.date))}
           </td>
           <td style={tableHeaderStyle}>
-            {<Link to={"/marksheet/" + contact?._id}>Click</Link>}
+            {<Link className="btn btn-danger" style={{marginLeft:"20px"}} to={"/marksheet/" + contact?._id}>Click</Link>}
           </td>
           <td style={tableActionsStyle}>
             <button

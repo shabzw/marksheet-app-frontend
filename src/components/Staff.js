@@ -4,6 +4,7 @@ import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 import { useNavigate } from "react-router-dom";
 import UserDetails from "./UserDetails";
+import SortOptions from "./SortOptions";
 
 function Staff(props) {
   const curUserData = localStorage.getItem("curUserData");
@@ -251,6 +252,10 @@ localStorage.setItem("classVal", classValue)
   };
   return (
     <>
+    <h1 style={{ marginBottom: "30px" }}>
+                Store your data in the most secure place in{" "}
+                <strong>tabData</strong>
+              </h1>
       <UserDetails userInfo={currentData} />
 
       <div
@@ -289,52 +294,7 @@ localStorage.setItem("classVal", classValue)
 
         {/* {classValue && ( */}
           <>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "15px" }}
-            >
-              <h1 style={{ marginBottom: "15px" }}>
-                Store your data in the most secure place in{" "}
-                <strong>tabData</strong>
-              </h1>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent:"center" }}>
-    <input
-      type="text"
-      placeholder="Search by name..."
-      value={searchQuery}
-      onChange={handleInputChange}
-      style={{
-        flex: "1", // Allow the input to grow and take available space
-        padding: "8px", // Padding around the input text
-        fontSize: "16px", // Font size of the input text
-        maxWidth: "400px", // Set a maximum width for the input
-      }}
-    />
-    <button
-      onClick={handleClear}
-      type="button"
-      className="btn btn-secondary btn-sm"
-      style={{ padding: "8px", fontSize: "16px" }}
-    >
-      Clear
-    </button>
-  </div>
-  <div style={{ display: "flex", justifyContent: "center", alignItems:"center"}}>
-    <label htmlFor="sortSelect" style={{ marginRight: "5px", fontSize: "16px" }}>
-      Sort By:
-    </label>
-    <select
-      disabled={sortByButton}
-      id="sortSelect"
-      value={sortType}
-      onChange={(e) => handleSort(e.target.value)}
-      style={{ padding: "8px", fontSize: "16px", maxWidth: "100%" }}
-    >
-      <option value="">Select</option>
-      <option value="name">Name (A-Z)</option>
-      <option value="dateAdded">Date Added (Recent First)</option>
-    </select>
-  </div>
-            </div>
+           <SortOptions searchQuery={searchQuery} handleInputChange={handleInputChange} handleClear={handleClear} sortByButton={sortByButton} sortType={sortType} handleSort={handleSort}/>
 
             <form
               style={{
