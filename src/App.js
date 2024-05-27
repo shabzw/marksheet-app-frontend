@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import { useState } from "react";
 import Staff from "./components/Staff";
 import Marksheet from "./components/Marksheet";
-import NoteState from "./context/results/NoteState";
+import ResultState from "./context/results/ResultState";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -23,7 +23,7 @@ function App() {
   };
   return (
     <>
-      <NoteState>
+      <ResultState>
         <BrowserRouter>
           <Navbar />
           <Alert alert={alert} />
@@ -54,7 +54,7 @@ function App() {
             </Routes>
           </div>
         </BrowserRouter>
-      </NoteState>
+      </ResultState>
     </>
   );
 }

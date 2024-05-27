@@ -25,6 +25,7 @@ export default function ReadOnlyRow({
   };
 
   return (
+    //Display student detail form or student marksheet from according to the presence of studentData value
     <Fragment>
       {studentData && (
         <tr>

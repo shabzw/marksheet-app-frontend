@@ -3,15 +3,14 @@ import { useState, Fragment, useEffect, useContext } from "react";
 import EditableRow from "./EditableRow";
 import { useNavigate, useParams } from "react-router-dom";
 import ReadOnlyRow from "./ReadOnlyRow";
-import noteContext from "../context/results/noteContext";
+import resultContext from "../context/results/resultContext";
 
 function Marksheet(props) {
   const params = useParams();
-  const context = useContext(noteContext);
+  const context = useContext(resultContext);
   const { results, setResults } = context;
   const navigate = useNavigate();
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-  const [contacts, setContacts] = useState([""]);
 
   const [editData, setEditData] = useState(false);
   const [addFormData, setAddFormData] = useState({
@@ -22,11 +21,6 @@ function Marksheet(props) {
     remarks: "",
   });
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredContacts, setFilteredContacts] = useState([]);
-  const [sortType, setSortType] = useState(""); // 'name' or 'dateAdded'
-  const [sortByButton, setSortByButton] = useState(true);
-  const [arrayFormData, setArrayFormData] = useState([]);
   const [totalMarks, setTotalMarks] = useState("");
 
   const [editFormData, setEditFormData] = useState({
@@ -36,6 +30,7 @@ function Marksheet(props) {
     marksScored: "",
     remarks: "",
   });
+
   var role = localStorage.getItem("role");
 
   const [editContactId, setEditContactId] = useState(null);
@@ -46,6 +41,7 @@ function Marksheet(props) {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
+      //API call to fetch marks of the student
       const response = fetch(`${API_BASE_URL}/api/marks/getmarks`, {
         method: "POST",
         headers: {
@@ -61,6 +57,7 @@ function Marksheet(props) {
           return response.json(); // Parse the JSON from the response
         })
         .then((data) => {
+          //marks are fetched successfully
           const fetchedData = data;
           localStorage.setItem("updatedData", fetchedData);
           setResults(data);
@@ -78,7 +75,7 @@ function Marksheet(props) {
 
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
-
+    //Add the input data inside newFormData
     const newFormData = { ...addFormData };
     newFormData[fieldName] = fieldValue;
     setAddFormData(newFormData);
@@ -89,7 +86,7 @@ function Marksheet(props) {
 
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
-
+    //Add the edited input data inside newFormData
     const newFormData = { ...editFormData };
     newFormData[fieldName] = fieldValue;
 
@@ -107,8 +104,8 @@ function Marksheet(props) {
 
   const handleAddFormSubmit = async (event) => {
     event.preventDefault();
-
-    const newContact = {
+    //set newSubject variable with newly added subject data
+    const newSubject = {
       subjectName: addFormData.subjectName,
       grade: addFormData.grade,
       marksScored: addFormData.marksScored,
@@ -116,6 +113,7 @@ function Marksheet(props) {
       remarks: addFormData.remarks,
     };
 
+    //API call for adding new marks data
     const response = fetch(`${API_BASE_URL}/api/marks/addmarks`, {
       method: "POST",
       headers: {
@@ -124,7 +122,7 @@ function Marksheet(props) {
         studentId: params.id,
       },
       body: JSON.stringify({
-        newContact,
+        newSubject,
       }),
     })
       .then((response) => {
@@ -148,6 +146,7 @@ function Marksheet(props) {
     setEditData(true);
 
     const formValues = {
+      //To prepopulate subject data while editing
       _id: result._id,
       subjectName: result.subjectName,
       grade: result.grade,
@@ -162,7 +161,8 @@ function Marksheet(props) {
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
 
-    const editedContact = {
+    const editedSubject = {
+      //Edited data of subjects
       id: editFormData._id,
       subjectName: editFormData.subjectName,
       grade: editFormData.grade,
@@ -171,6 +171,7 @@ function Marksheet(props) {
       remarks: editFormData.remarks,
     };
 
+    //API call for editing marks
     const response = fetch(`${API_BASE_URL}/api/marks/editmarks`, {
       method: "PUT",
       headers: {
@@ -179,7 +180,7 @@ function Marksheet(props) {
         studentId: params.id,
       },
       body: JSON.stringify({
-        editedContact,
+        editedSubject,
       }),
     })
       .then((response) => {
@@ -203,6 +204,7 @@ function Marksheet(props) {
   };
 
   const handleDeleteClick = (contactId) => {
+    //API call for deleting Subject data
     const response = fetch(`${API_BASE_URL}/api/marks/deletemarks`, {
       method: "DELETE",
       headers: {
@@ -228,7 +230,9 @@ function Marksheet(props) {
         console.error("There was a problem with the fetch operation:", error);
       });
   };
+
   const tableCellStyle = {
+    // Apply cell styles
     border: "1px solid #ffffff",
     textAlign: "left",
     padding: "8px",
@@ -241,6 +245,7 @@ function Marksheet(props) {
   };
 
   const formatDate = (date) => {
+    //Date format conversion
     if (date instanceof Date && !isNaN(date)) {
       const formattedDate = date.toLocaleDateString();
       const formattedTime = date.toLocaleTimeString();
@@ -293,6 +298,7 @@ function Marksheet(props) {
                 {results.map((result) => (
                   <Fragment key={result?._id}>
                     {editContactId === result?._id ? (
+                      //Display edit form when clicked on edit button
                       <EditableRow
                         tableCellStyle={tableCellStyle}
                         editFormData={editFormData}
@@ -301,6 +307,7 @@ function Marksheet(props) {
                         // formatDate={formatDate}
                       />
                     ) : (
+                      //Display read only form as default
                       <ReadOnlyRow
                         tableCellStyle={tableCellStyle}
                         result={result}

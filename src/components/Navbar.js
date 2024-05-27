@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const Navbar = () => {
   let navigate = useNavigate();
   const handleLogout = () => {
+    // clear the data from localStorage on logout
     localStorage.removeItem("token");
     localStorage.removeItem("updatedData");
     localStorage.removeItem("role");
@@ -12,10 +13,12 @@ const Navbar = () => {
     localStorage.removeItem("classVal");
     navigate("/login");
   };
+
   let location = useLocation();
   useEffect(() => {
     // Google Analytics
   }, [location]);
+
   return (
     <div>
       <nav className="navbar  navbar-expand-lg navbar-dark bg-dark">

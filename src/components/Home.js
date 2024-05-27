@@ -1,12 +1,12 @@
 import React, { useContext, useState, Fragment, useEffect } from "react";
-import noteContext from "../context/results/noteContext";
+import resultContext from "../context/results/resultContext";
 import ReadMarksRow from "./ReadMarksRow";
 import { useNavigate } from "react-router-dom";
 import UserDetails from "./UserDetails";
 
 export default function Home(props) {
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-  const context = useContext(noteContext);
+  const context = useContext(resultContext);
   const { results, setResults } = context;
   const [resultDisplay, setResultDisplay] = useState(true);
   const navigate = useNavigate();
@@ -50,7 +50,6 @@ export default function Home(props) {
     }, 0);
     setTotalMarks(totalMarksScored);
   }, [results]);
-
 
   var role = localStorage.getItem("role");
   if (role && role != "student") {
@@ -108,6 +107,7 @@ export default function Home(props) {
   };
   return (
     <>
+    {/* Display student details */}
       <UserDetails userInfo={userInfo} />
       <div
         style={{
@@ -150,6 +150,7 @@ export default function Home(props) {
                 <tbody>
                   {results.map((result) => (
                     <Fragment key={result?._id}>
+                      {/* Display marks as read only */}
                       <ReadMarksRow
                         tableCellStyle={tableCellStyle}
                         result={result}
@@ -163,14 +164,11 @@ export default function Home(props) {
             </div>
 
             <h4 style={{ marginTop: "10px" }}>
-          Total Marks Scored:{" "}
-          <span class="badge text-bg-success">{totalMarks}</span>
-        </h4>
-
+              Total Marks Scored:{" "}
+              <span class="badge text-bg-success">{totalMarks}</span>
+            </h4>
           </form>
         )}
-        
-
       </div>
     </>
   );
