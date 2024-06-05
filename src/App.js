@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
+import Home from "./pages/Home";
+import About from "./pages/About";
 import Alert from "./components/Alert";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import { useState } from "react";
-import Staff from "./components/Staff";
-import Marksheet from "./components/Marksheet";
+import Staff from "./pages/Staff";
+import Marksheet from "./pages/Marksheet";
 import ResultState from "./context/results/ResultState";
 
 function App() {

@@ -1,8 +1,8 @@
 import React, { useContext, useState, Fragment, useEffect } from "react";
 import resultContext from "../context/results/resultContext";
-import ReadMarksRow from "./ReadMarksRow";
+import ReadMarksRow from "../components/ReadMarksRow";
 import { useNavigate } from "react-router-dom";
-import UserDetails from "./UserDetails";
+import UserDetails from "../components/UserDetails";
 
 export default function Home(props) {
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
@@ -138,7 +138,7 @@ export default function Home(props) {
               <table style={{ borderCollapse: "collapse", width: "100%" }}>
                 <thead>
                   <tr>
-                    <th style={tableHeaderStyle}>ID Number</th>
+                    <th style={tableHeaderStyle}>Serial number</th>
                     <th style={tableHeaderStyle}>Subjects</th>
                     <th style={tableHeaderStyle}>Passing Marks</th>
                     <th style={tableHeaderStyle}>Marks Scored</th>
@@ -148,7 +148,7 @@ export default function Home(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {results.map((result) => (
+                  {results.map((result, index) => (
                     <Fragment key={result?._id}>
                       {/* Display marks as read only */}
                       <ReadMarksRow
@@ -156,6 +156,7 @@ export default function Home(props) {
                         result={result}
                         resultDisplay={resultDisplay}
                         formatDate={formatDate}
+                        index={index}
                       />
                     </Fragment>
                   ))}

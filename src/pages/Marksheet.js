@@ -1,8 +1,8 @@
 // import '../Table.css';
 import { useState, Fragment, useEffect, useContext } from "react";
-import EditableRow from "./EditableRow";
+import EditableRow from "../components/EditableRow";
 import { useNavigate, useParams } from "react-router-dom";
-import ReadOnlyRow from "./ReadOnlyRow";
+import ReadOnlyRow from "../components/ReadOnlyRow";
 import resultContext from "../context/results/resultContext";
 
 function Marksheet(props) {
@@ -284,7 +284,7 @@ function Marksheet(props) {
             <table style={{ borderCollapse: "collapse", width: "100%" }}>
               <thead>
                 <tr>
-                  <th style={tableHeaderStyle}>ID Number</th>
+                  <th style={tableHeaderStyle}>Serial Number</th>
                   <th style={tableHeaderStyle}>Subjects</th>
                   <th style={tableHeaderStyle}>Passing Marks</th>
                   <th style={tableHeaderStyle}>Marks Scored</th>
@@ -295,7 +295,7 @@ function Marksheet(props) {
                 </tr>
               </thead>
               <tbody>
-                {results.map((result) => (
+                {results.map((result, index) => (
                   <Fragment key={result?._id}>
                     {editContactId === result?._id ? (
                       //Display edit form when clicked on edit button
@@ -304,6 +304,7 @@ function Marksheet(props) {
                         editFormData={editFormData}
                         handleEditFormChange={handleEditFormChange}
                         handleCancelClick={handleCancelClick}
+                        index={index}
                         // formatDate={formatDate}
                       />
                     ) : (
@@ -314,6 +315,7 @@ function Marksheet(props) {
                         handleEditClick={handleEditClick}
                         handleDeleteClick={handleDeleteClick}
                         formatDate={formatDate}
+                        index={index}
                       />
                     )}
                   </Fragment>

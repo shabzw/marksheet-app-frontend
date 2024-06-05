@@ -5,6 +5,7 @@ export default function ReadMarksRow({
   result,
   resultDisplay,
   formatDate,
+  index
 }) {
   const tableHeaderStyle = {
     ...tableCellStyle, // Apply cell styles to headers
@@ -15,7 +16,7 @@ export default function ReadMarksRow({
     <Fragment>
       {resultDisplay && (
         <tr>
-          <td style={tableHeaderStyle}>{result?.idNumber}</td>
+          <td style={tableHeaderStyle}>{index+1}</td>
           <td style={tableHeaderStyle}>{result?.subjectName}</td>
           <td style={tableHeaderStyle}>{result?.passingMarks}</td>
           <td style={tableHeaderStyle}>{result?.marksScored}</td>

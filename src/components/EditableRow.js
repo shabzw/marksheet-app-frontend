@@ -6,6 +6,7 @@ export default function EditableRow({
   handleCancelClick,
   tableCellStyle,
   studentData,
+  index
 }) {
   const tableHeaderStyle = {
     ...tableCellStyle, // Apply cell styles to headers
@@ -112,8 +113,8 @@ export default function EditableRow({
               required="required"
               placeholder="Not Editable"
               name="_id"
-              value={editFormData._id}
-              onChange={handleEditFormChange}
+              value={index+1}
+              // onChange={handleEditFormChange}
             />
           </td>
           <td style={tableHeaderStyle}>

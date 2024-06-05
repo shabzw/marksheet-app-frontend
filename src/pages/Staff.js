@@ -1,10 +1,10 @@
 // import '../Table.css';
 import { useState, Fragment, useEffect } from "react";
-import ReadOnlyRow from "./ReadOnlyRow";
-import EditableRow from "./EditableRow";
+import ReadOnlyRow from "../components/ReadOnlyRow";
+import EditableRow from "../components/EditableRow";
 import { useNavigate } from "react-router-dom";
-import UserDetails from "./UserDetails";
-import SortOptions from "./SortOptions";
+import UserDetails from "../components/UserDetails";
+import SortOptions from "../components/SortOptions";
 
 function Staff(props) {
   const [editData, setEditData] = useState(false);
@@ -271,7 +271,7 @@ function Staff(props) {
         }}
       >
         <h4 className="mt-5">Select Class to access student data</h4>
-        <div>
+        <div style={{marginBottom:"50px"}}>
           <label
             htmlfor="classN"
             className="form-label"
@@ -318,6 +318,9 @@ function Staff(props) {
             }}
             onSubmit={handleEditFormSubmit}
           >
+            <div style={{display:"flex", justifyContent:"center", fontSize:"15px"}}>
+              <span style={{backgroundColor:"yellow", paddingLeft:"5px", paddingRight:"5px", borderRadius:"5px"}}>Use Marksheet column ("Click") to access students' results</span>
+            </div>
             <div style={{ overflowX: "auto" }}>
               <table style={{ borderCollapse: "collapse", width: "100%" }}>
                 <thead>

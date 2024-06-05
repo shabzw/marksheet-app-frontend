@@ -9,6 +9,7 @@ export default function ReadOnlyRow({
   studentData,
   result,
   formatDate,
+  index
 }) {
   const tableHeaderStyle = {
     ...tableCellStyle, // Apply cell styles to headers
@@ -58,7 +59,7 @@ export default function ReadOnlyRow({
       )}
       {!studentData && (
         <tr>
-          <td style={tableHeaderStyle}>{result?.idNumber}</td>
+          <td style={tableHeaderStyle}>{index+1}</td>
           <td style={tableHeaderStyle}>{result?.subjectName}</td>
           <td style={tableHeaderStyle}>{result?.passingMarks}</td>
           <td style={tableHeaderStyle}>{result?.marksScored}</td>
