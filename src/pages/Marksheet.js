@@ -249,8 +249,8 @@ function Marksheet(props) {
   const formatDate = (date) => {
     //Date format conversion
     if (date instanceof Date && !isNaN(date)) {
-      const formattedDate = date.toLocaleDateString();
-      const formattedTime = date.toLocaleTimeString();
+      const formattedDate = date.toLocaleDateString('en-IN');
+      const formattedTime = date.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' });
       return `${formattedDate} ${formattedTime}`;
     }
     return ""; // Return empty string if date is not valid
