@@ -29,6 +29,7 @@ function Marksheet(props) {
     passingMarks: "",
     marksScored: "",
     remarks: "",
+    lastUpdated: ""
   });
 
   var role = localStorage.getItem("role");
@@ -169,6 +170,7 @@ function Marksheet(props) {
       passingMarks: editFormData.passingMarks,
       marksScored: editFormData.marksScored,
       remarks: editFormData.remarks,
+      lastUpdated: formatDate(new Date())
     };
 
     //API call for editing marks
@@ -253,6 +255,8 @@ function Marksheet(props) {
     }
     return ""; // Return empty string if date is not valid
   };
+
+  // const editDate = formatDate(new Date())
 
   return (
     <div
